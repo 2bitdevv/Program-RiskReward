@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>คำนวณ Risk-Reward </title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+    <h2>คำนวณ Risk-Reward  (RR)</h2>
+
+    <input type="number" id="risk" placeholder="Risk (ความเสี่ยง)">
+    <input type="number" id="reward" placeholder="Reward (ผลตอบแทน)">
+    <button onclick="calculateRR()">คำนวณ RR</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+function calculateRR() {
+    const risk = parseFloat(document.getElementById("risk").value);
+    const reward = parseFloat(document.getElementById("reward").value);
+
+    if(isNaN(risk) || isNaN(reward) || risk <= 0 || reward <= 0) {
+        document.getElementById("result").innerText = "กรุณากรอกตัวเลขที่ถูกต้อง (>0)";
+        return;
+    }
+
+    const rr = reward / risk;
+    const rrRounded = Math.round(rr * 10) / 10;
+
+    document.getElementById("result").innerText = `Risk-Reward Ratio (RR) = 1 : ${rrRounded}`;
+}
+</script>
+
+</body>
+</html>
