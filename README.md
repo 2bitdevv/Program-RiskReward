@@ -1,0 +1,1 @@
+Risk Reward for trader
